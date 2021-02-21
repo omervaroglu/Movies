@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 protocol MovieDetailViewModelDelegate: class {
-    func showDetail(_ movie: Result?)
+    func showDetail(_ movie: Event<ControlEvent<Result>.Element>)
 }
 
 protocol MovieDetailViewModelProtocol {

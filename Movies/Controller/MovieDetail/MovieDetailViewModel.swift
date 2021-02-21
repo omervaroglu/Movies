@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class MovieDetailViewModel: MovieDetailViewModelProtocol {
     
     weak var delegate: MovieDetailViewModelDelegate?
-    private let movie: Result?
+    private let movie: Event<ControlEvent<Result>.Element>
     
-    init(movie: Result?) {
+    init(movie: Event<ControlEvent<Result>.Element>) {
         self.movie = movie
     }
     
