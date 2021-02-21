@@ -32,7 +32,9 @@ final class  MovieListViewModel: MovieListViewModelProtocol {
     }
     
     func selectItem(at index: Int) {
-        //TODO: Implement.
+        let movie = self.movie?.results[index]
+        let viewModel = MovieDetailViewModel(movie: movie)
+        delegate?.navigate(to: .detail(viewModel))
     }
     
     private func notify(_ output: MovieListViewModelOutput) {

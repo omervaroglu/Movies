@@ -32,6 +32,14 @@ class MovieListViewController: UIViewController {
 
 //MARK: - MovieListViewModelDelegate
 extension MovieListViewController: MovieListViewModelDelegate {
+    func navigate(to route: MovieListViewRoute) {
+        switch route {
+        case .detail(let viewModel):
+            let viewController = MovieDetailBuilder.make(with: viewModel)
+            show(viewController, sender: nil)
+        }
+    }
+    
     
     func handleViewModelOutput(_ output: MovieListViewModelOutput) {
         switch output {
@@ -59,7 +67,7 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        viewModel.selectItem(at: indexPath.row)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension

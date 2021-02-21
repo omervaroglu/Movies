@@ -19,6 +19,11 @@ enum MovieListViewModelOutput {
     case showMovie([Result])
 }
 
+enum MovieListViewRoute{
+    case detail(MovieDetailViewModelProtocol)
+}
+
 protocol MovieListViewModelDelegate: class {
     func handleViewModelOutput(_ output: MovieListViewModelOutput)
+    func navigate(to route: MovieListViewRoute)
 }
