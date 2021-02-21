@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 final class  MovieListViewModel: MovieListViewModelProtocol {
     
     weak var delegate: MovieListViewModelDelegate?
     private let service: MoviesServiceProtocol
-    private var movie: Movie?
+    
+    var movies = BehaviorRelay<[Result]>(value: [])
 
     init(service: MoviesServiceProtocol) {
         self.service = service
@@ -26,13 +29,13 @@ final class  MovieListViewModel: MovieListViewModelProtocol {
                 print(error.localizedDescription)
                 return
             }
-            self.movie = movie
-            self.notify(.showMovie(movie?.results ?? [] ))
+            self.movies.accept(movie?.results ?? [])
+            self.notify(.showMovie)
         }
     }
     
-    func selectItem(at index: Int) {
-        let movie = self.movie?.results[index]
+    func selectItem(at item: Event<ControlEvent<Result>.Element>) {
+        let movie = item
         let viewModel = MovieDetailViewModel(movie: movie)
         delegate?.navigate(to: .detail(viewModel))
     }

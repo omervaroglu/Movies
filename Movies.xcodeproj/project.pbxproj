@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1706E77E25E31A88004A7E5E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1706E77D25E31A88004A7E5E /* UIView.swift */; };
 		17BFD01225E1AABC00177DD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFD01125E1AABC00177DD8 /* AppDelegate.swift */; };
 		17BFD01625E1AABC00177DD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17BFD01525E1AABC00177DD8 /* ViewController.swift */; };
 		17BFD01925E1AABC00177DD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17BFD01725E1AABC00177DD8 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1706E77D25E31A88004A7E5E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		17BFD00E25E1AABC00177DD8 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17BFD01125E1AABC00177DD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17BFD01525E1AABC00177DD8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				17BFD06225E2908700177DD8 /* UITableView.swift */,
 				17BFD06B25E2943F00177DD8 /* Double.swift */,
 				17BFD08825E2AF9D00177DD8 /* setImg.swift */,
+				1706E77D25E31A88004A7E5E /* UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				17BFD06F25E2988800177DD8 /* MovieListBuilder.swift in Sources */,
 				17BFD01225E1AABC00177DD8 /* AppDelegate.swift in Sources */,
 				17BFD06325E2908700177DD8 /* UITableView.swift in Sources */,
+				1706E77E25E31A88004A7E5E /* UIView.swift in Sources */,
 				17BFD06C25E2943F00177DD8 /* Double.swift in Sources */,
 				17BFD06825E292BE00177DD8 /* ClassNameGettable.swift in Sources */,
 				17BFD07A25E29DFC00177DD8 /* MovieDetailBuilder.swift in Sources */,

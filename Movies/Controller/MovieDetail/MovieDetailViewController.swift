@@ -7,11 +7,14 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MovieDetailViewController: UIViewController {
     
-    @IBOutlet weak var movieImageView: UIImageView!
-    @IBOutlet weak var movieDecription: UILabel!
+    @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var movieImageView: UIImageView!
+    @IBOutlet private weak var movieDecription: UILabel!
     
     var viewModel: MovieDetailViewModelProtocol!
     
@@ -19,13 +22,15 @@ class MovieDetailViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         viewModel.load()
+        containerView.configureBorderedContainer()
     }
 }
 extension MovieDetailViewController: MovieDetailViewModelDelegate {
     
-    func showDetail(_ movie: Result?) {
-        self.movieDecription.text = movie?.overview
-        setImg(image: movieImageView, imgLink: Constants.shared.imagePath + (movie?.posterPath ?? ""))
+    func showDetail(_ movie: Event<ControlEvent<Result>.Element>) {
+        self.movieDecription.text = movie.element?.overview
+        setImg(image: movieImageView, imgLink: Constants.shared.imagePath + (movie.element?.posterPath ?? ""))
+        self.title = movie.element?.name
     }
 
 }

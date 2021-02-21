@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MovieListViewController: UIViewController {
     
@@ -16,17 +18,25 @@ class MovieListViewController: UIViewController {
             viewModel.delegate = self
         }
     }
-    private var movieList: [Result] = []
+    
+    private let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.loadDatas()
-        registerTableView()
     }
     
-    private func registerTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+    private func bindTableView() {
         tableView.register(with: MoviesTableViewCell.className)
+        
+        viewModel.movies.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MoviesTableViewCell", cellType: MoviesTableViewCell.self)) { row, element, cell in
+                    cell.configureCell(movie: element)
+                }
+            .disposed(by: self.disposeBag)
+        tableView.rx.modelSelected(Result.self).subscribe { [weak self] ( item ) in
+            guard let self = self else { return }
+            self.viewModel.selectItem(at: item)
+        }
     }
 }
 
@@ -40,36 +50,13 @@ extension MovieListViewController: MovieListViewModelDelegate {
         }
     }
     
-    
     func handleViewModelOutput(_ output: MovieListViewModelOutput) {
         switch output {
         case .titleUpdate(let title):
             self.title = title
-        case .showMovie(let movieList):
-            self.movieList = movieList
-            tableView.reloadData()
+        case .showMovie:
+            bindTableView()
         }
     }
-    
 }
 
-//MARK: - TableView Delegate & Datasource
-extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movieList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesTableViewCell", for: indexPath) as! MoviesTableViewCell
-        let movie = movieList[indexPath.row]
-        cell.configureCell(movie: movie)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectItem(at: indexPath.row)
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-}

@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import RxCocoa
+import RxSwift
 
 protocol MovieListViewModelProtocol{
     var delegate: MovieListViewModelDelegate? {get set}
     
     func loadDatas()
-    func selectItem(at index: Int)
+    func selectItem(at item: Event<ControlEvent<Result>.Element>)
 }
 
 enum MovieListViewModelOutput {
     case titleUpdate(String)
-    case showMovie([Result])
+    case showMovie
 }
 
 enum MovieListViewRoute{

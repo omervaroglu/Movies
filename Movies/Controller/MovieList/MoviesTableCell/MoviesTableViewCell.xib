@@ -18,10 +18,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ge0-mE-rWC">
-                        <rect key="frame" x="0.0" y="0.0" width="438" height="148"/>
+                        <rect key="frame" x="16" y="8" width="406" height="132"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ec2-TP-wGJ">
-                                <rect key="frame" x="32" y="32" width="374" height="28.5"/>
+                                <rect key="frame" x="32" y="24" width="342" height="28.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28.5" id="qy8-HX-7gb"/>
                                 </constraints>
@@ -30,7 +30,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MeM-ml-Hvx">
-                                <rect key="frame" x="32" y="76.5" width="374" height="55.5"/>
+                                <rect key="frame" x="32" y="68.5" width="342" height="55.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55.5" id="wbf-Ta-LRi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,9 +41,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Ec2-TP-wGJ" firstAttribute="top" secondItem="Ge0-mE-rWC" secondAttribute="top" constant="32" id="3ZN-13-gZO"/>
+                            <constraint firstItem="Ec2-TP-wGJ" firstAttribute="top" secondItem="Ge0-mE-rWC" secondAttribute="top" constant="24" id="3ZN-13-gZO"/>
                             <constraint firstItem="Ec2-TP-wGJ" firstAttribute="leading" secondItem="Ge0-mE-rWC" secondAttribute="leading" constant="32" id="IFW-Zc-ZvW"/>
-                            <constraint firstAttribute="bottom" secondItem="MeM-ml-Hvx" secondAttribute="bottom" constant="16" id="KUM-oV-WlF"/>
+                            <constraint firstAttribute="bottom" secondItem="MeM-ml-Hvx" secondAttribute="bottom" constant="8" id="KUM-oV-WlF"/>
                             <constraint firstAttribute="trailing" secondItem="Ec2-TP-wGJ" secondAttribute="trailing" constant="32" id="TQz-GI-5UK"/>
                             <constraint firstItem="MeM-ml-Hvx" firstAttribute="trailing" secondItem="Ec2-TP-wGJ" secondAttribute="trailing" id="nIj-z0-j4q"/>
                             <constraint firstItem="MeM-ml-Hvx" firstAttribute="top" secondItem="Ec2-TP-wGJ" secondAttribute="bottom" constant="16" id="pYt-An-0jI"/>
@@ -49,14 +52,15 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Ge0-mE-rWC" secondAttribute="trailing" id="CMv-la-U14"/>
-                    <constraint firstItem="Ge0-mE-rWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cal-Mw-8JD"/>
-                    <constraint firstAttribute="bottom" secondItem="Ge0-mE-rWC" secondAttribute="bottom" id="tvK-JJ-3zp"/>
-                    <constraint firstItem="Ge0-mE-rWC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vqN-uW-Jn2"/>
+                    <constraint firstAttribute="trailing" secondItem="Ge0-mE-rWC" secondAttribute="trailing" constant="16" id="CMv-la-U14"/>
+                    <constraint firstItem="Ge0-mE-rWC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="cal-Mw-8JD"/>
+                    <constraint firstAttribute="bottom" secondItem="Ge0-mE-rWC" secondAttribute="bottom" constant="8" id="tvK-JJ-3zp"/>
+                    <constraint firstItem="Ge0-mE-rWC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="vqN-uW-Jn2"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="containerView" destination="Ge0-mE-rWC" id="jxL-3p-jRE"/>
                 <outlet property="ratingLabel" destination="MeM-ml-Hvx" id="b8I-WT-uAO"/>
                 <outlet property="titleLabel" destination="Ec2-TP-wGJ" id="IAl-lp-fgm"/>
             </connections>
