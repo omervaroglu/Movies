@@ -16,7 +16,6 @@ final class AppRouter {
     }
     
     func start(){
-        //TODO: Need to add builder
         let viewController = MovieListBuilder.make()
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
