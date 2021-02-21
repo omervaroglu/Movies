@@ -10,8 +10,6 @@ import RxCocoa
 import RxSwift
 
 final class  MovieListViewModel: MovieListViewModelProtocol {
-
-    
     
     weak var delegate: MovieListViewModelDelegate?
     private let service: MoviesServiceProtocol
