@@ -1,1 +1,1 @@
- # For RxSwift, please checkout Development branch. :rocket:
+ # For RxSwift, please checkout Develop branch. :rocket:
