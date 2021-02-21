@@ -26,8 +26,7 @@ class MovieListViewController: UIViewController {
         viewModel.loadDatas()
     }
     
-    private func registerTableView() {
-        tableView.rowHeight = 150
+    private func bindTableView() {
         tableView.register(with: MoviesTableViewCell.className)
         
         viewModel.movies.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MoviesTableViewCell", cellType: MoviesTableViewCell.self)) { row, element, cell in
@@ -56,7 +55,7 @@ extension MovieListViewController: MovieListViewModelDelegate {
         case .titleUpdate(let title):
             self.title = title
         case .showMovie:
-            registerTableView()
+            bindTableView()
         }
     }
 }
